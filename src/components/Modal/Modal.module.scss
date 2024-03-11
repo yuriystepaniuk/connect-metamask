@@ -1,0 +1,82 @@
+// Modal.module.scss
+
+$primary-color: #333; // Example variable
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background:rgba(0, 0, 0, 0.5); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.modalContent {
+  background: rgb(255, 255, 255);
+  width: 100%;
+  max-width: 400px; // Adjust as necessary
+  padding: 16px;
+  box-shadow: 0 4px 6px rgba(25, 118, 210, 0.1); 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  text-align: center;
+  gap:10px;
+  border-radius: 4px;
+  margin: 10px;
+}
+
+.tab {
+  padding: 12px 24px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  color:black;
+  font-weight: 600;
+  margin: 4px;
+
+  &:hover,
+  &.active {
+    // background-color: $primary-color;
+    color: #1976d2;
+  }
+}
+.buttonBlock {
+    padding-top: 40px;
+    background-color: red;
+}
+
+.textField {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.containerForm {
+    height: 300px;
+    justify-content: space-between;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap:10px;
+}
+
+.containerTextField {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.buttonContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    
+}
