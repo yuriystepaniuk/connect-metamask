@@ -1,15 +1,16 @@
 "use client";
 import React, { useState } from "react";
 import { Modal } from "../Modal/Modal";
-import { playSound } from "@/app/util/playSound";
 import s from './Header.module.scss'
+import useSound from "use-sound";
 
 export const Header = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [initialActiveTab, setInitialActiveTab] = useState('login'); 
-  
+const [play] = useSound('/assets/audio/click.mp3');
+
   const openModal = (tab) => {
-    playSound()
+    play()
     setInitialActiveTab(tab)
     setIsModalOpen(true);
   };

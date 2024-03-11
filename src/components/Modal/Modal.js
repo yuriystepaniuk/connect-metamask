@@ -4,11 +4,12 @@ import {  TextField } from "@mui/material";
 import s from "./Modal.module.scss";
 import ConnectWalletButtom from "../ConnectWalletButton/ConnectWalletButtom";
 import { MetaMaskProvider } from "@metamask/sdk-react";
-import { playSound } from "@/app/util/playSound";
+import useSound from "use-sound";
 
 export const Modal = ({ closeModal, initialActiveTab }) => {
   const [activeTab, setActiveTab] = useState(initialActiveTab);
   const [userName, setUserName] = useState("");
+  const [play] = useSound('/assets/audio/click.mp3');
 
   const handleOutsideClick = (e) => {
     if (e.target === e.currentTarget) {
@@ -17,7 +18,7 @@ export const Modal = ({ closeModal, initialActiveTab }) => {
   };
 
   const handleTabClick = (tab) => {
-    playSound()
+    play()
     setActiveTab(tab);
   };
 

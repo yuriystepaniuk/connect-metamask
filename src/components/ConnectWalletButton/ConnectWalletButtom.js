@@ -1,20 +1,22 @@
+"use client"
 import { Button } from "@mui/material";
 import { useSDK } from "@metamask/sdk-react";
 import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { wait } from "@/app/util/wait";
 import { fetchWithMockedRoutes } from "@/app/util/fetchWithMockedRoutes";
-import { playSound } from "@/app/util/playSound";
+import useSound from "use-sound";
 
 const ConnectWalletButton = ({ userName, isDisabled, activeTab }) => {
   const { sdk, connected} = useSDK();
   const [signedMessage, setSignedMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [play] = useSound('/assets/audio/click.mp3');
 
+  
 
   const connectAndSignLogin = async () => {
-    playSound()
+    play()
     setIsLoading(true);
     try {
       const [walletAddress] = await sdk?.connect();
@@ -40,7 +42,7 @@ const ConnectWalletButton = ({ userName, isDisabled, activeTab }) => {
   };
 
   const connectAndSignUp = async () => {
-    playSound()
+    play()
     setIsLoading(true);
     try {
       const [walletAddress] = await sdk?.connect();
@@ -65,7 +67,7 @@ const ConnectWalletButton = ({ userName, isDisabled, activeTab }) => {
   };
 
   const disconnect = () => {
-    playSound()
+    play()
     if (sdk) {
       sdk.terminate();
     }

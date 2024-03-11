@@ -18,7 +18,8 @@
     "react": "^18",
     "react-dom": "^18",
     "react-toastify": "^10.0.4",
-    "sass": "^1.71.1"
+    "sass": "^1.71.1",
+    "use-sound": "^4.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^10.0.1",
