@@ -15,7 +15,7 @@ const [play] = useSound('/assets/audio/click.mp3');
     setIsModalOpen(true);
   };
 
-  const closeModal = () => { playSound()
+  const closeModal = () => {
     setIsModalOpen(false);
   };
   return (
