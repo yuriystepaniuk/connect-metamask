@@ -1,15 +1,14 @@
 "use client";
 import React, { useState } from "react";
-import {  TextField } from "@mui/material";
+import { TextField } from "@mui/material";
 import s from "./Modal.module.scss";
 import ConnectWalletButtom from "../ConnectWalletButton/ConnectWalletButtom";
-import { MetaMaskProvider } from "@metamask/sdk-react";
 import useSound from "use-sound";
 
 export const Modal = ({ closeModal, initialActiveTab }) => {
   const [activeTab, setActiveTab] = useState(initialActiveTab);
   const [userName, setUserName] = useState("");
-  const [play] = useSound('/assets/audio/click.mp3');
+  const [play] = useSound("/assets/audio/click.mp3");
 
   const handleOutsideClick = (e) => {
     if (e.target === e.currentTarget) {
@@ -18,7 +17,7 @@ export const Modal = ({ closeModal, initialActiveTab }) => {
   };
 
   const handleTabClick = (tab) => {
-    play()
+    play();
     setActiveTab(tab);
   };
 
@@ -63,17 +62,11 @@ export const Modal = ({ closeModal, initialActiveTab }) => {
             )}
           </div>
           <div className={s.buttonContainer}>
-            <MetaMaskProvider
-              debug={false}
-              sdkOptions={{
-                dappMetadata: {
-                  name: "test_wallet",
-                  url: window.location.href,
-                },
-              }}
-            >
-              <ConnectWalletButtom userName={userName} isDisabled={isConnectWalletButtonDisabled} activeTab={activeTab}/>
-            </MetaMaskProvider>
+            <ConnectWalletButtom
+              userName={userName}
+              isDisabled={isConnectWalletButtonDisabled}
+              activeTab={activeTab}
+            />
           </div>
         </div>
       </div>
