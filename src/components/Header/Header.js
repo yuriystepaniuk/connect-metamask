@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Modal } from "../Modal/Modal";
 import s from "./Header.module.scss";
 import useSound from "use-sound";
@@ -8,7 +8,12 @@ import { MetaMaskProvider } from "@metamask/sdk-react";
 export const Header = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [initialActiveTab, setInitialActiveTab] = useState("login");
+  const [dappUrl, setDappUrl] = useState("");
   const [play] = useSound("/assets/audio/click.mp3");
+
+  useEffect(() => {
+    setDappUrl(window.location.href);
+  }, []);
 
   const openModal = (tab) => {
     play();
@@ -25,7 +30,7 @@ export const Header = () => {
       sdkOptions={{
         dappMetadata: {
           name: "test_wallet",
-          url: window.location.href,
+          url: dappUrl,
         },
       }}
     >
